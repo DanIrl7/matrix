@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #ffd2a3;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #000;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            border: 3px solid #000;
+            padding: 20px;
+            background-color: #FF6B35;
+            color: #fff;
+            box-shadow: 8px 8px 0px 0px #004E89;
+            display: inline-block;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            font-weight: 900;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            color: #004E89;
+        }
+        
+        h3 {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #F77F00;
+        }
+        
+        .input-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #fff;
+            border: 3px solid #004E89;
+            box-shadow: 8px 8px 0px 0px #F77F00;
+        }
+        
+        .filter-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-group label {
+            font-weight: 900;
+            margin-bottom: 12px;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #004E89;
+        }
+        
+        .filter-group select,
+        #urlInput {
+            padding: 15px;
+            font-size: 14px;
+            border: 3px solid #004E89;
+            background-color: #FFFBF0;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            box-shadow: 4px 4px 0px 0px #F77F00;
+            cursor: pointer;
+            transition: all 0.05s ease;
+            color: #000;
+        }
+
+        #urlInput {
+            width: 50%;
+        }
+        
+        .filter-group select:focus,
+        #urlInput:focus {
+            outline: none;
+            box-shadow: 2px 2px 0px 0px #FF6B35;
+            transform: translate(2px, 2px);
+            border-color: #FF6B35;
+        }
+        
+        .url-input-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 3px solid #004E89;
+        }
+        
+        .url-input-section h3 {
+            margin-top: 0;
+            color: #F77F00;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        
+        button {
+            padding: 18px 30px;
+            font-size: 16px;
+            background-color: #FF6B35;
+            color: #fff;
+            border: 3px solid #000;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 6px 6px 0px 0px #004E89;
+            transition: all 0.05s ease;
+            font-family: 'Courier New', monospace;
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 15px;
+        }
+        
+        button:hover {
+            background-color: #F77F00;
+            box-shadow: 4px 4px 0px 0px #004E89;
+            transform: translate(2px, 2px);
+        }
+        
+        button:active {
+            box-shadow: none;
+            transform: translate(6px, 6px);
+            background-color: #FF6B35;
+        }
+        
+        #status {
+            margin-bottom: 30px;
+            padding: 20px;
+            font-weight: 900;
+            font-size: 18px;
+            border: 3px solid #004E89;
+            background-color: #FFFBF0;
+            box-shadow: 5px 5px 0px 0px #F77F00;
+            letter-spacing: 1px;
+            color: #000;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border: 3px solid #004E89;
+            background-color: #fff;
+            box-shadow: 8px 8px 0px 0px #F77F00;
+        }
+        
+        thead {
+            background-color: #004E89;
+        }
+        
+        th {
+            border: 3px solid #000;
+            padding: 20px;
+            text-align: left;
+            font-weight: 900;
+            color: #fff;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            border: 2px solid #004E89;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+        }
+        
+        tbody tr:nth-child(odd) {
+            background-color: #FFFBF0;
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #fff;
+        }
+        
+        tbody tr:hover {
+            background-color: #E8F4F8;
+            border-left: 3px solid #FF6B35;
+        }
+        
+        .saved-urls-section {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: #FFFBF0;
+            border: 3px solid #004E89;
+            box-shadow: 6px 6px 0px 0px #F77F00;
+        }
+        
+        .saved-urls-section h3 {
+            margin-bottom: 20px;
+            color: #004E89;
+        }
+        
+        .url-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .url-item {
+            display: inline-flex;
+            align-items: center;
+            background-color: #fff;
+            border: 2px solid #004E89;
+            padding: 10px 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.05s ease;
+            box-shadow: 3px 3px 0px 0px #F77F00;
+        }
+        
+        .url-item:hover {
+            box-shadow: 2px 2px 0px 0px #F77F00;
+            transform: translate(1px, 1px);
+            background-color: #FF6B35;
+            color: #fff;
+            border-color: #FF6B35;
+        }
+        
+        .url-item-text {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-right: 10px;
+        }
+        
+        .url-item-delete {
+            background-color: #F77F00;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: 900;
+            font-size: 12px;
+            border-radius: 0;
+        }
+        
+        .url-item-delete:hover {
+            background-color: #FF6B35;
+        }
+        
+        .url-input-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .url-input-row input {
+            flex: 1;
+        }
+        
+        .empty-state {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Worker License Dashboard</h1>
+    
+    <div class="input-section">
+        <!-- URL Input Section -->
+        <h2>JSON URL</h2>
+        <div class="url-input-row">
+            <input type="text" id="urlInput" placeholder="Paste JSON URL here">
+            <button onclick="fetchData()">Fetch Data</button>
+            <button onclick="saveCurrentUrl()" style="background-color: #004E89; box-shadow: 6px 6px 0px 0px #F77F00;">Save URL</button>
+        </div>
+        
+        <!-- Saved URLs List -->
+        <div class="saved-urls-section">
+            <h3>📌 Saved URLs</h3>
+            <div class="url-list" id="urlList">
+                <span class="empty-state">No saved URLs yet. Enter a URL and click "Save URL" to add one.</span>
+            </div>
+        </div>
+        
+        <!-- Filter Section -->
+       
+    </div>
+    
+    <div id="status"></div>
+    <div id="results"></div>
+
+    <script>
+// Initialize saved URLs on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadSavedUrls();
+});
+
+// Save current URL to localStorage
+function saveCurrentUrl() {
+    const url = document.getElementById('urlInput').value;
+    
+    if (!url.trim()) {
+        alert('Please enter a URL to save');
+        return;
+    }
+    
+    // Get existing URLs
+    let savedUrls = JSON.parse(localStorage.getItem('savedUrls')) || [];
+    
+    // Check if URL already exists
+    if (savedUrls.includes(url)) {
+        alert('This URL is already saved');
+        return;
+    }
+    
+    // Add new URL
+    savedUrls.push(url);
+    localStorage.setItem('savedUrls', JSON.stringify(savedUrls));
+    
+    // Refresh the display
+    loadSavedUrls();
+    alert('URL saved!');
+}
+
+// Load and display saved URLs
+function loadSavedUrls() {
+    const savedUrls = JSON.parse(localStorage.getItem('savedUrls')) || [];
+    const urlList = document.getElementById('urlList');
+    
+    if (savedUrls.length === 0) {
+        urlList.innerHTML = '<span class="empty-state">No saved URLs yet. Enter a URL and click "Save URL" to add one.</span>';
+        return;
+    }
+    
+    // Build HTML for saved URLs
+    let html = '';
+    savedUrls.forEach((url, index) => {
+        html += `<div class="url-item">
+            <span class="url-item-text" onclick="loadSavedUrl('${url}')" title="${url}">${url}</span>
+            <button class="url-item-delete" onclick="deleteUrl(${index})">Delete</button>
+        </div>`;
+    });
+    
+    urlList.innerHTML = html;
+}
+
+// Load a saved URL and fetch data
+function loadSavedUrl(url) {
+    document.getElementById('urlInput').value = url;
+    fetchDataFromUrl(url);
+}
+
+// Delete a saved URL
+function deleteUrl(index) {
+    let savedUrls = JSON.parse(localStorage.getItem('savedUrls')) || [];
+    savedUrls.splice(index, 1);
+    localStorage.setItem('savedUrls', JSON.stringify(savedUrls));
+    loadSavedUrls();
+}
+
+async function fetchData() {
+    const url = document.getElementById('urlInput').value;
+    
+    // Validation
+    if (!url.trim()) {
+        document.getElementById('status').innerHTML = '❌ Please enter a URL';
+        return;
+    }
+    
+    fetchDataFromUrl(url);
+}
+
+// Core fetch function
+async function fetchDataFromUrl(url) {
+    const statusDiv = document.getElementById('status');
+    const resultsDiv = document.getElementById('results');
+    
+    // Show loading status
+    statusDiv.innerHTML = '⏳ Loading...';
+    resultsDiv.innerHTML = '';
+    
+    try {
+        // Send the URL to the backend
+        const response = await fetch('/api/fetch-json', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: url })
+        });
+        
+        const result = await response.json();
+        
+        // Check if backend returned success
+        if (!result.success) {
+            statusDiv.innerHTML = '❌ Error: ' + result.error;
+            return;
+        }
+        
+        // Success! Show the data
+        statusDiv.innerHTML = '✅ Loaded ' + result.data.length + ' records';
+        
+        // Build and display the table
+        renderTable(result.data);
+        
+    } catch (error) {
+        statusDiv.innerHTML = '❌ Error: ' + error.message;
+    }
+}
+
+function renderTable(dataArray) {
+    const resultsDiv = document.getElementById('results');
+    
+    // Handle empty data
+    if (!dataArray || dataArray.length === 0) {
+        resultsDiv.innerHTML = '<p>No data found</p>';
+        return;
+    }
+    
+    // Define the columns to display (in order)
+    const fields = [
+        ':id',
+        ':version',
+        ':created_at',
+        ':updated_at',
+        'license_sl_no',
+        'license_type',
+        'license_number',
+        'last_name',
+        'first_name',
+        'business_name',
+        'business_house_number',
+        'business_street_name',
+        'license_business_city',
+        'business_state',
+        'business_zip_code',
+        'business_email',
+        'business_phone_number',
+        'license_status',
+        'lat',
+        'long',
+        'cb',
+        'cd',
+        'ct',
+        'bin',
+        'bbl',
+        'nta'
+    ];
+    
+    // Build table header
+    let html = '<table><thead><tr>';
+    fields.forEach(field => {
+        html += '<th>' + field + '</th>';
+    });
+    html += '</tr></thead><tbody>';
+    
+    // Build table rows
+    dataArray.forEach(row => {
+        html += '<tr>';
+        fields.forEach(field => {
+            html += '<td>' + (row[field] || '') + '</td>';
+        });
+        html += '</tr>';
+    });
+    
+    html += '</tbody></table>';
+    
+    // Display the table
+    resultsDiv.innerHTML = html;
+}
+
+    </script>
+    
+</body>
+</html>
