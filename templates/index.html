@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix</title>
+    <title>🏗️ Worker License Dashboard</title>
 <style>
         * {
             margin: 0;
@@ -179,7 +179,6 @@
             color: #fff;
             font-size: 14px;
             letter-spacing: 1px;
-            text-transform: uppercase;
         }
         
         td {
@@ -281,22 +280,22 @@
     </style>
 </head>
 <body>
-    <h1>Worker License Dashboard</h1>
+    <h1>🏗️ Worker License Dashboard</h1>
     
     <div class="input-section">
         <!-- URL Input Section -->
-        <h2>JSON URL</h2>
+        <h2>🔗 Data Source URL</h2>
         <div class="url-input-row">
-            <input type="text" id="urlInput" placeholder="Paste JSON URL here">
-            <button onclick="fetchData()">Fetch Data</button>
-            <button onclick="saveCurrentUrl()" style="background-color: #004E89; box-shadow: 6px 6px 0px 0px #F77F00;">Save URL</button>
+            <input type="text" id="urlInput" placeholder="Paste a JSON endpoint URL here (e.g. NYC Open Data)">
+            <button onclick="fetchData()">🔍 Fetch Data</button>
+            <button onclick="saveCurrentUrl()" style="background-color: #004E89; box-shadow: 6px 6px 0px 0px #F77F00;">📌 Save URL</button>
         </div>
         
         <!-- Saved URLs List -->
         <div class="saved-urls-section">
             <h3>📌 Saved URLs</h3>
             <div class="url-list" id="urlList">
-                <span class="empty-state">No saved URLs yet. Enter a URL and click "Save URL" to add one.</span>
+                <span class="empty-state">✨ No saved URLs yet — paste a URL above and click 📌 Save URL to bookmark it.</span>
             </div>
         </div>
         
@@ -346,7 +345,7 @@ function loadSavedUrls() {
     const urlList = document.getElementById('urlList');
     
     if (savedUrls.length === 0) {
-        urlList.innerHTML = '<span class="empty-state">No saved URLs yet. Enter a URL and click "Save URL" to add one.</span>';
+        urlList.innerHTML = '<span class="empty-state">✨ No saved URLs yet — paste a URL above and click 📌 Save URL to bookmark it.</span>';
         return;
     }
     
@@ -355,7 +354,7 @@ function loadSavedUrls() {
     savedUrls.forEach((url, index) => {
         html += `<div class="url-item">
             <span class="url-item-text" onclick="loadSavedUrl('${url}')" title="${url}">${url}</span>
-            <button class="url-item-delete" onclick="deleteUrl(${index})">Delete</button>
+            <button class="url-item-delete" onclick="deleteUrl(${index})">🗑️</button>
         </div>`;
     });
     
@@ -394,7 +393,7 @@ async function fetchDataFromUrl(url) {
     const resultsDiv = document.getElementById('results');
     
     // Show loading status
-    statusDiv.innerHTML = '⏳ Loading...';
+    statusDiv.innerHTML = '⏳ Fetching data, please wait...';
     resultsDiv.innerHTML = '';
     
     try {
@@ -411,7 +410,7 @@ async function fetchDataFromUrl(url) {
         
         // Check if backend returned success
         if (!result.success) {
-            statusDiv.innerHTML = '❌ Error: ' + result.error;
+            statusDiv.innerHTML = '❌ Something went wrong: ' + result.error;
             return;
         }
         
@@ -422,7 +421,7 @@ async function fetchDataFromUrl(url) {
         renderTable(result.data);
         
     } catch (error) {
-        statusDiv.innerHTML = '❌ Error: ' + error.message;
+        statusDiv.innerHTML = '❌ Could not load data: ' + error.message;
     }
 }
 
@@ -431,44 +430,47 @@ function renderTable(dataArray) {
     
     // Handle empty data
     if (!dataArray || dataArray.length === 0) {
-        resultsDiv.innerHTML = '<p>No data found</p>';
+        resultsDiv.innerHTML = '<p>🤷 No records found for that URL.</p>';
         return;
     }
     
+    // Map raw API field names to human-readable labels
+    const fieldLabels = {
+        ':id':                   '🆔 ID',
+        ':version':              '🔄 Version',
+        ':created_at':           '📅 Created',
+        ':updated_at':           '🔁 Updated',
+        'license_sl_no':         '📋 Serial No.',
+        'license_type':          '📂 License Type',
+        'license_number':        '🪪 License No.',
+        'last_name':             '👤 Last Name',
+        'first_name':            '👤 First Name',
+        'business_name':         '🏢 Business Name',
+        'business_house_number': '🏠 House No.',
+        'business_street_name':  '🛣️ Street',
+        'license_business_city': '🏙️ City',
+        'business_state':        '📍 State',
+        'business_zip_code':     '📮 ZIP Code',
+        'business_email':        '📧 Email',
+        'business_phone_number': '📞 Phone',
+        'license_status':        '✅ Status',
+        'lat':                   '🌐 Latitude',
+        'long':                  '🌐 Longitude',
+        'cb':                    '🗺️ CB',
+        'cd':                    '🗺️ CD',
+        'ct':                    '🗺️ CT',
+        'bin':                   '🏗️ BIN',
+        'bbl':                   '🏗️ BBL',
+        'nta':                   '🗺️ NTA'
+    };
+
     // Define the columns to display (in order)
-    const fields = [
-        ':id',
-        ':version',
-        ':created_at',
-        ':updated_at',
-        'license_sl_no',
-        'license_type',
-        'license_number',
-        'last_name',
-        'first_name',
-        'business_name',
-        'business_house_number',
-        'business_street_name',
-        'license_business_city',
-        'business_state',
-        'business_zip_code',
-        'business_email',
-        'business_phone_number',
-        'license_status',
-        'lat',
-        'long',
-        'cb',
-        'cd',
-        'ct',
-        'bin',
-        'bbl',
-        'nta'
-    ];
+    const fields = Object.keys(fieldLabels);
     
     // Build table header
     let html = '<table><thead><tr>';
     fields.forEach(field => {
-        html += '<th>' + field + '</th>';
+        html += '<th>' + fieldLabels[field] + '</th>';
     });
     html += '</tr></thead><tbody>';
     
