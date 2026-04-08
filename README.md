@@ -92,7 +92,7 @@ Fetches a remote JSON endpoint server-side and returns the data.
 **Request body:**
 ```json
 {
-  "url": "https://data.cityofnewyork.us/resource/example.json"
+  "url": "https://data.cityofnewyork.us/api/v3/views/t8hj-ruu2/query.json?pageNumber=1&pageSize=500&app_token=BHkxm74M2ivCagGkeGmAhbtjb"
 }
 ```
 
