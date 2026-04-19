@@ -179,6 +179,20 @@
             color: #fff;
             font-size: 14px;
             letter-spacing: 1px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.1s ease;
+        }
+        
+        th:hover {
+            background-color: #1a5c9e;
+            transform: scale(1.02);
+        }
+        
+        th.active {
+            background-color: #FF6B35;
+            color: #000;
+            box-shadow: inset 0px 0px 0px 3px #000;
         }
         
         td {
@@ -199,6 +213,137 @@
         tbody tr:hover {
             background-color: #E8F4F8;
             border-left: 3px solid #FF6B35;
+        }
+        
+        tbody tr.saved {
+            background-color: #FFF9E6 !important;
+            border-left: 4px solid #FF6B35 !important;
+        }
+        
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        .action-toolbar {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border: 3px solid #004E89;
+            box-shadow: 5px 5px 0px 0px #F77F00;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .action-toolbar button {
+            margin: 0;
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+        
+        .action-toolbar span {
+            font-weight: 900;
+            color: #004E89;
+            margin-left: auto;
+        }
+        
+        .save-btn {
+            background-color: #FF6B35;
+            border: 2px solid #000;
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 900;
+            color: #fff;
+            box-shadow: 3px 3px 0px 0px #004E89;
+            transition: all 0.05s ease;
+        }
+        
+        .save-btn:hover {
+            background-color: #F77F00;
+            transform: translate(1px, 1px);
+        }
+        
+        .save-btn.saved {
+            background-color: #004E89;
+            color: #FF6B35;
+        }
+        
+        .saved-workers-panel {
+            margin-top: 40px;
+            padding: 25px;
+            background-color: #fff;
+            border: 3px solid #004E89;
+            box-shadow: 8px 8px 0px 0px #FF6B35;
+        }
+        
+        .saved-workers-panel h2 {
+            color: #FF6B35;
+            margin-bottom: 20px;
+        }
+        
+        .saved-workers-list {
+            max-height: 500px;
+            overflow-y: auto;
+            border: 2px solid #004E89;
+            background-color: #FFFBF0;
+        }
+        
+        .saved-worker-item {
+            padding: 15px;
+            border-bottom: 2px solid #E8F4F8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+        
+        .saved-worker-item:last-child {
+            border-bottom: none;
+        }
+        
+        .saved-worker-name {
+            font-weight: 900;
+            color: #004E89;
+        }
+        
+        .saved-worker-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .remove-worker-btn {
+            background-color: #F77F00;
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-weight: 900;
+            font-size: 12px;
+            transition: all 0.05s ease;
+        }
+        
+        .remove-worker-btn:hover {
+            background-color: #FF6B35;
+        }
+        
+        .export-controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .empty-saved {
+            padding: 20px;
+            text-align: center;
+            color: #999;
+            font-style: italic;
         }
         
         .saved-urls-section {
@@ -277,10 +422,286 @@
             color: #666;
             font-style: italic;
         }
+
+        /* Tablet (768px and below) */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                padding: 15px;
+                margin-bottom: 30px;
+                box-shadow: 5px 5px 0px 0px #004E89;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+            
+            .filter-section {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            #urlInput {
+                width: 100%;
+            }
+            
+            .url-input-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .url-input-row button {
+                width: 100%;
+                padding: 15px 20px;
+                margin-right: 0;
+                margin-top: 0;
+            }
+            
+            .input-section {
+                padding: 20px;
+                box-shadow: 5px 5px 0px 0px #F77F00;
+            }
+            
+            table {
+                font-size: 12px;
+                box-shadow: 5px 5px 0px 0px #F77F00;
+                overflow-x: auto;
+                display: block;
+            }
+            
+            thead {
+                display: block;
+            }
+            
+            tbody {
+                display: block;
+                max-height: 60vh;
+                overflow-y: auto;
+            }
+            
+            tr {
+                display: block;
+                border: 2px solid #004E89;
+                margin-bottom: 10px;
+                background-color: #fff;
+            }
+            
+            th {
+                padding: 12px;
+                font-size: 12px;
+            }
+            
+            td {
+                display: block;
+                padding: 8px 12px;
+                border: none;
+                border-bottom: 1px solid #E8F4F8;
+                text-align: left;
+            }
+            
+            td:before {
+                content: attr(data-label);
+                font-weight: 900;
+                color: #004E89;
+                display: inline-block;
+                width: 120px;
+                margin-right: 10px;
+            }
+            
+            .saved-urls-section {
+                padding: 15px;
+                margin-top: 20px;
+                box-shadow: 4px 4px 0px 0px #F77F00;
+            }
+            
+            .url-item-text {
+                max-width: 150px;
+            }
+            
+            .url-list {
+                gap: 8px;
+            }
+            
+            #status {
+                padding: 15px;
+                font-size: 14px;
+                box-shadow: 4px 4px 0px 0px #F77F00;
+            }
+        }
+        
+        /* Mobile (480px and below) */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+                max-width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.4em;
+                padding: 12px;
+                margin-bottom: 20px;
+                letter-spacing: 0.5px;
+                box-shadow: 3px 3px 0px 0px #004E89;
+            }
+            
+            h2 {
+                font-size: 1.1em;
+                margin-bottom: 15px;
+            }
+            
+            h3 {
+                font-size: 0.95em;
+                margin-bottom: 10px;
+            }
+            
+            .input-section {
+                padding: 15px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+            }
+            
+            .filter-section {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .filter-group select,
+            #urlInput {
+                padding: 12px;
+                font-size: 13px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+            }
+            
+            #urlInput {
+                width: 100%;
+            }
+            
+            .url-input-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .url-input-row button {
+                width: 100%;
+                padding: 12px 15px;
+                font-size: 14px;
+                box-shadow: 3px 3px 0px 0px #004E89;
+            }
+            
+            button:hover {
+                box-shadow: 2px 2px 0px 0px #004E89;
+                transform: translate(1px, 1px);
+            }
+            
+            button:active {
+                box-shadow: none;
+                transform: translate(3px, 3px);
+            }
+            
+            table {
+                font-size: 11px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+                margin-top: 20px;
+            }
+            
+            td {
+                padding: 6px 8px;
+            }
+            
+            th {
+                padding: 10px 8px;
+                font-size: 11px;
+            }
+            
+            .saved-urls-section {
+                padding: 12px;
+                margin-top: 15px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+            }
+            
+            .url-item {
+                flex-direction: column;
+                padding: 8px;
+                box-shadow: 2px 2px 0px 0px #F77F00;
+            }
+            
+            .url-item-text {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 8px;
+            }
+            
+            .url-item-delete {
+                width: 100%;
+                padding: 6px 8px;
+                font-size: 11px;
+            }
+            
+            .url-list {
+                gap: 6px;
+            }
+            
+            #status {
+                padding: 12px;
+                font-size: 13px;
+                margin-bottom: 20px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+            }
+            
+            .action-toolbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 12px;
+                box-shadow: 3px 3px 0px 0px #F77F00;
+            }
+            
+            .action-toolbar span {
+                margin-left: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .action-toolbar button {
+                width: 100%;
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+            
+            .save-btn {
+                padding: 6px 10px;
+                font-size: 14px;
+            }
+            
+            .saved-workers-panel {
+                padding: 15px;
+                box-shadow: 5px 5px 0px 0px #FF6B35;
+            }
+            
+            .saved-workers-list {
+                max-height: 300px;
+            }
+            
+            .saved-worker-item {
+                padding: 10px;
+                font-size: 12px;
+            }
+            
+            .export-controls {
+                flex-direction: column;
+            }
+            
+            .export-controls button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>🏗️ Worker License Dashboard</h1>
+    <h1>🏗️ Workers License Dashboard</h1>
     
     <div class="input-section">
         <!-- URL Input Section -->
@@ -303,12 +724,46 @@
     </div>
     
     <div id="status"></div>
+    <div id="actionToolbar" class="action-toolbar" style="display: none;">
+        <button onclick="saveSelectedWorkers()">💾 Save Selected</button>
+        <button onclick="clearSelection()">Clear Selection</button>
+        <button onclick="exportSavedCSV()" style="background-color: #004E89;">📥 Export CSV</button>
+        <button onclick="exportSavedJSON()" style="background-color: #004E89;">📥 Export JSON</button>
+        <span id="selectionCount">0 selected</span>
+    </div>
     <div id="results"></div>
+    
+    <div id="savedWorkersPanel" class="saved-workers-panel" style="display: none;">
+        <h2>⭐ Saved Workers (<span id="savedCount">0</span>)</h2>
+        <div id="savedWorkersList" class="saved-workers-list"></div>
+        <div class="export-controls">
+            <button onclick="exportSavedCSV()" style="background-color: #004E89; color: #fff;">📥 Download CSV</button>
+            <button onclick="exportSavedJSON()" style="background-color: #004E89; color: #fff;">📥 Download JSON</button>
+            <button onclick="clearAllSaved()" style="background-color: #F77F00; color: #fff;">🗑️ Clear All</button>
+        </div>
+    </div>
 
     <script>
+// Sorting state
+let currentData = [];
+let currentSortField = null;
+let currentSortDirection = 'asc'; // 'asc' or 'desc'
+
+// Worker saving state
+let savedWorkers = [];
+let selectedRows = new Set();
+
+// Load saved workers from localStorage on page load
+function loadSavedWorkers() {
+    const saved = localStorage.getItem('savedWorkers');
+    savedWorkers = saved ? JSON.parse(saved) : [];
+}
+
 // Initialize saved URLs on page load
 document.addEventListener('DOMContentLoaded', function() {
     loadSavedUrls();
+    loadSavedWorkers();
+    displaySavedWorkers();
 });
 
 // Save current URL to localStorage
@@ -433,6 +888,11 @@ function renderTable(dataArray) {
         return;
     }
     
+    // Store the data for sorting
+    currentData = JSON.parse(JSON.stringify(dataArray));
+    currentSortField = null;
+    currentSortDirection = 'asc';
+    
     // Map raw API field names to human-readable labels
     const fieldLabels = {
         ':id':                   '🆔 ID',
@@ -466,18 +926,29 @@ function renderTable(dataArray) {
     // Define the columns to display (in order)
     const fields = Object.keys(fieldLabels);
     
-    // Build table header
+    // Show toolbar and reset selection
+    selectedRows.clear();
+    document.getElementById('actionToolbar').style.display = 'flex';
+    document.getElementById('savedWorkersPanel').style.display = 'block';
+    
+    // Build table header with checkbox column
     let html = '<table><thead><tr>';
+    html += '<th style="width: 40px;"><input type="checkbox" id="selectAll" onchange="toggleSelectAll()"></th>';
+    html += '<th style="width: 40px;">Save</th>';
     fields.forEach(field => {
-        html += '<th>' + fieldLabels[field] + '</th>';
+        html += '<th data-field="' + field + '" onclick="sortByField(\'' + field + '\')">' + fieldLabels[field] + '</th>';
     });
     html += '</tr></thead><tbody>';
     
-    // Build table rows
-    dataArray.forEach(row => {
-        html += '<tr>';
+    // Build table rows with checkboxes and save buttons
+    currentData.forEach((row, index) => {
+        const isSaved = isWorkerSaved(row);
+        const rowClass = isSaved ? 'saved' : '';
+        html += '<tr class="' + rowClass + '" data-row-index="' + index + '">';
+        html += '<td style="width: 40px;"><input type="checkbox" class="row-checkbox" data-index="' + index + '" onchange="updateToolbar()"></td>';
+        html += '<td style="width: 40px;"><button class="save-btn ' + (isSaved ? 'saved' : '') + '" onclick="saveWorker(' + index + ')">' + (isSaved ? '⭐' : '☆') + '</button></td>';
         fields.forEach(field => {
-            html += '<td>' + (row[field] || '') + '</td>';
+            html += '<td data-label="' + fieldLabels[field] + '">' + (row[field] || '') + '</td>';
         });
         html += '</tr>';
     });
@@ -486,6 +957,333 @@ function renderTable(dataArray) {
     
     // Display the table
     resultsDiv.innerHTML = html;
+}
+
+function sortByField(field) {
+    // If clicking the same field, toggle direction; otherwise set to ascending
+    if (currentSortField === field) {
+        currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSortField = field;
+        currentSortDirection = 'asc';
+    }
+    
+    // Sort the data
+    currentData.sort((a, b) => {
+        let valueA = a[field];
+        let valueB = b[field];
+        
+        // Handle null/undefined
+        if (valueA == null) valueA = '';
+        if (valueB == null) valueB = '';
+        
+        // Helper function to parse value intelligently
+        const parseValue = (val) => {
+            if (val === '') return '';
+            
+            // Check if it's an ISO 8601 date/datetime string
+            const isoDateRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/;
+            if (typeof val === 'string' && isoDateRegex.test(val)) {
+                const date = new Date(val);
+                // Return as date if valid, otherwise treat as string
+                return !isNaN(date.getTime()) ? date : val.toLowerCase();
+            }
+            
+            // Check if it looks like a number
+            if (typeof val === 'string') {
+                const num = parseFloat(val);
+                if (!isNaN(num) && val.trim() !== '') {
+                    return num;
+                }
+                // Otherwise treat as string
+                return val.toLowerCase();
+            }
+            
+            return val;
+        };
+        
+        valueA = parseValue(valueA);
+        valueB = parseValue(valueB);
+        
+        // Compare
+        let comparison = 0;
+        if (valueA < valueB) comparison = -1;
+        if (valueA > valueB) comparison = 1;
+        
+        return currentSortDirection === 'asc' ? comparison : -comparison;
+    });
+    
+    // Re-render the table with sorted data and sorted header indicator
+    const resultsDiv = document.getElementById('results');
+    const fieldLabels = {
+        ':id':                   '🆔 ID',
+        ':version':              '🔄 Version',
+        ':created_at':           '📅 Created',
+        ':updated_at':           '🔁 Updated',
+        'license_sl_no':         '📋 Serial No.',
+        'license_type':          '📂 License Type',
+        'license_number':        '🪪 License No.',
+        'last_name':             '👤 Last Name',
+        'first_name':            '👤 First Name',
+        'business_name':         '🏢 Business Name',
+        'business_house_number': '🏠 House No.',
+        'business_street_name':  '🛣️ Street',
+        'license_business_city': '🏙️ City',
+        'business_state':        '📍 State',
+        'business_zip_code':     '📮 ZIP Code',
+        'business_email':        '📧 Email',
+        'business_phone_number': '📞 Phone',
+        'license_status':        '✅ Status',
+        'lat':                   '🌐 Latitude',
+        'long':                  '🌐 Longitude',
+        'cb':                    '🗺️ CB',
+        'cd':                    '🗺️ CD',
+        'ct':                    '🗺️ CT',
+        'bin':                   '🏗️ BIN',
+        'bbl':                   '🏗️ BBL',
+        'nta':                   '🗺️ NTA'
+    };
+    
+    const fields = Object.keys(fieldLabels);
+    const sortArrow = currentSortDirection === 'asc' ? ' ↑' : ' ↓';
+    
+    // Build table with sorted indicator
+    let html = '<table><thead><tr>';
+    html += '<th style="width: 40px;"><input type="checkbox" id="selectAll" onchange="toggleSelectAll()"></th>';
+    html += '<th style="width: 40px;">Save</th>';
+    fields.forEach(field => {
+        const isActive = field === currentSortField;
+        const activeClass = isActive ? ' class="active"' : '';
+        const label = fieldLabels[field] + (isActive ? sortArrow : '');
+        html += '<th data-field="' + field + '" onclick="sortByField(\'' + field + '\')"' + activeClass + '>' + label + '</th>';
+    });
+    html += '</tr></thead><tbody>';
+    
+    // Build sorted table rows with checkboxes and save buttons
+    currentData.forEach((row, index) => {
+        const isSaved = isWorkerSaved(row);
+        const rowClass = isSaved ? 'saved' : '';
+        html += '<tr class="' + rowClass + '" data-row-index="' + index + '">';
+        html += '<td style="width: 40px;"><input type="checkbox" class="row-checkbox" data-index="' + index + '" onchange="updateToolbar()"></td>';
+        html += '<td style="width: 40px;"><button class="save-btn ' + (isSaved ? 'saved' : '') + '" onclick="saveWorker(' + index + ')">' + (isSaved ? '⭐' : '☆') + '</button></td>';
+        fields.forEach(field => {
+            html += '<td data-label="' + fieldLabels[field] + '">' + (row[field] || '') + '</td>';
+        });
+        html += '</tr>';
+    });
+    
+    html += '</tbody></table>';
+    resultsDiv.innerHTML = html;
+}
+
+// Worker saving functions
+
+// Create a unique key for a worker (first_name + license_type)
+function getWorkerKey(worker) {
+    const firstName = (worker['first_name'] || '').toLowerCase().trim();
+    const licenseType = (worker['license_type'] || '').toLowerCase().trim();
+    return firstName + '|' + licenseType;
+}
+
+// Check if a worker is already saved
+function isWorkerSaved(worker) {
+    const key = getWorkerKey(worker);
+    return savedWorkers.some(w => getWorkerKey(w) === key);
+}
+
+// Save a single worker
+function saveWorker(index) {
+    const worker = currentData[index];
+    const key = getWorkerKey(worker);
+    
+    // Check if already saved
+    if (isWorkerSaved(worker)) {
+        if (confirm('This worker is already saved. Skip or save again?')) {
+            // User wants to save anyway
+        } else {
+            return;
+        }
+    }
+    
+    // Add to saved workers
+    savedWorkers.push(worker);
+    localStorage.setItem('savedWorkers', JSON.stringify(savedWorkers));
+    
+    // Update UI
+    displaySavedWorkers();
+    const table = document.querySelector('table tbody');
+    if (table) {
+        const row = table.rows[index];
+        if (row) {
+            row.classList.add('saved');
+            const btn = row.querySelector('.save-btn');
+            if (btn) btn.textContent = '⭐';
+            if (btn) btn.classList.add('saved');
+        }
+    }
+}
+
+// Toggle select all checkbox
+function toggleSelectAll() {
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    const selectAll = document.getElementById('selectAll');
+    checkboxes.forEach(cb => {
+        cb.checked = selectAll.checked;
+        const index = parseInt(cb.dataset.index);
+        if (selectAll.checked) {
+            selectedRows.add(index);
+        } else {
+            selectedRows.delete(index);
+        }
+    });
+    updateToolbar();
+}
+
+// Update toolbar when selection changes
+function updateToolbar() {
+    selectedRows.clear();
+    document.querySelectorAll('.row-checkbox:checked').forEach(cb => {
+        selectedRows.add(parseInt(cb.dataset.index));
+    });
+    document.getElementById('selectionCount').textContent = selectedRows.size + ' selected';
+}
+
+// Clear all selections
+function clearSelection() {
+    selectedRows.clear();
+    document.querySelectorAll('.row-checkbox').forEach(cb => cb.checked = false);
+    document.getElementById('selectAll').checked = false;
+    updateToolbar();
+}
+
+// Save all selected workers
+function saveSelectedWorkers() {
+    if (selectedRows.size === 0) {
+        alert('Please select workers to save');
+        return;
+    }
+    
+    let added = 0;
+    let skipped = 0;
+    
+    selectedRows.forEach(index => {
+        const worker = currentData[index];
+        if (!isWorkerSaved(worker)) {
+            savedWorkers.push(worker);
+            added++;
+        } else {
+            skipped++;
+        }
+    });
+    
+    localStorage.setItem('savedWorkers', JSON.stringify(savedWorkers));
+    displaySavedWorkers();
+    clearSelection();
+    
+    // Re-render table to show saved status
+    renderTable(currentData);
+    
+    alert('Saved ' + added + ' workers.' + (skipped > 0 ? ' (' + skipped + ' were already saved)' : ''));
+}
+
+// Display saved workers
+function displaySavedWorkers() {
+    const count = savedWorkers.length;
+    document.getElementById('savedCount').textContent = count;
+    
+    if (count === 0) {
+        document.getElementById('savedWorkersList').innerHTML = '<div class="empty-saved">✨ No saved workers yet</div>';
+        return;
+    }
+    
+    let html = '';
+    savedWorkers.forEach((worker, index) => {
+        const name = (worker['first_name'] || '') + ' ' + (worker['last_name'] || '');
+        const license = worker['license_type'] || 'N/A';
+        const city = worker['license_business_city'] || 'N/A';
+        
+        html += '<div class="saved-worker-item">';
+        html += '<div>';
+        html += '<div class="saved-worker-name">' + name.trim() + '</div>';
+        html += '<div class="saved-worker-info">License: ' + license + ' | City: ' + city + '</div>';
+        html += '</div>';
+        html += '<button class="remove-worker-btn" onclick="removeSavedWorker(' + index + ')">🗑️</button>';
+        html += '</div>';
+    });
+    
+    document.getElementById('savedWorkersList').innerHTML = html;
+}
+
+// Remove a saved worker
+function removeSavedWorker(index) {
+    savedWorkers.splice(index, 1);
+    localStorage.setItem('savedWorkers', JSON.stringify(savedWorkers));
+    displaySavedWorkers();
+    renderTable(currentData);
+}
+
+// Clear all saved workers
+function clearAllSaved() {
+    if (confirm('Are you sure? This will delete all saved workers.')) {
+        savedWorkers = [];
+        localStorage.setItem('savedWorkers', JSON.stringify(savedWorkers));
+        displaySavedWorkers();
+        renderTable(currentData);
+    }
+}
+
+// Export to CSV
+function exportSavedCSV() {
+    if (savedWorkers.length === 0) {
+        alert('No saved workers to export');
+        return;
+    }
+    
+    // Get all fields from first worker
+    const fields = Object.keys(savedWorkers[0]);
+    
+    // Build CSV header
+    let csv = fields.map(f => '"' + f + '"').join(',') + '\n';
+    
+    // Build CSV rows
+    savedWorkers.forEach(worker => {
+        csv += fields.map(f => {
+            let val = worker[f] || '';
+            // Escape quotes and wrap in quotes if contains comma
+            val = String(val).replace(/"/g, '""');
+            if (val.includes(',') || val.includes('\n') || val.includes('"')) {
+                val = '"' + val + '"';
+            }
+            return val;
+        }).join(',') + '\n';
+    });
+    
+    // Download
+    downloadFile(csv, 'saved-workers.csv', 'text/csv');
+}
+
+// Export to JSON
+function exportSavedJSON() {
+    if (savedWorkers.length === 0) {
+        alert('No saved workers to export');
+        return;
+    }
+    
+    const json = JSON.stringify(savedWorkers, null, 2);
+    downloadFile(json, 'saved-workers.json', 'application/json');
+}
+
+// Helper function to download files
+function downloadFile(content, filename, type) {
+    const blob = new Blob([content], { type: type });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
 }
 
     </script>
