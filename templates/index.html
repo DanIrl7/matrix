@@ -345,6 +345,246 @@
             color: #999;
             font-style: italic;
         }
+
+        /* Filter Panel Styles */
+        .filter-panel {
+            margin-bottom: 30px;
+            padding: 25px;
+            background-color: #fff;
+            border: 3px solid #004E89;
+            box-shadow: 8px 8px 0px 0px #F77F00;
+        }
+        
+        .filter-panel h3 {
+            color: #004E89;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #004E89;
+        }
+        
+        .filter-tab {
+            padding: 12px 20px;
+            background-color: #FFFBF0;
+            border: 2px solid #004E89;
+            cursor: pointer;
+            font-weight: 900;
+            transition: all 0.05s ease;
+        }
+        
+        .filter-tab:hover {
+            background-color: #FF6B35;
+            color: #fff;
+        }
+        
+        .filter-tab.active {
+            background-color: #FF6B35;
+            color: #fff;
+            box-shadow: 3px 3px 0px 0px #004E89;
+            transform: translate(-2px, -2px);
+        }
+        
+        .filter-content {
+            display: none;
+        }
+        
+        .filter-content.active {
+            display: block;
+        }
+        
+        .quick-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .quick-filter-btn {
+            padding: 10px 15px;
+            background-color: #FFFBF0;
+            border: 2px solid #004E89;
+            color: #004E89;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.05s ease;
+            font-size: 14px;
+        }
+        
+        .quick-filter-btn:hover {
+            background-color: #E8F4F8;
+            transform: translate(1px, 1px);
+        }
+        
+        .quick-filter-btn.active {
+            background-color: #FF6B35;
+            color: #fff;
+            border-color: #FF6B35;
+        }
+        
+        .custom-rule {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .custom-rule select,
+        .custom-rule input {
+            padding: 10px;
+            border: 2px solid #004E89;
+            background-color: #FFFBF0;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+        }
+        
+        .custom-rule button {
+            padding: 10px 15px;
+            background-color: #FF6B35;
+            border: 2px solid #000;
+            color: #fff;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        
+        .simple-exclude {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .simple-exclude select,
+        .simple-exclude input {
+            padding: 10px;
+            border: 2px solid #004E89;
+            background-color: #FFFBF0;
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+        }
+        
+        .simple-exclude button {
+            padding: 10px 15px;
+            background-color: #FF6B35;
+            border: 2px solid #000;
+            color: #fff;
+            font-weight: 900;
+            cursor: pointer;
+        }
+        
+        .active-filters {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #E8F4F8;
+        }
+        
+        .active-filters h4 {
+            font-weight: 900;
+            color: #004E89;
+            margin-bottom: 10px;
+        }
+        
+        .filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .filter-chip {
+            padding: 8px 12px;
+            background-color: #FF6B35;
+            color: #fff;
+            border: 2px solid #000;
+            font-weight: 900;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-chip-remove {
+            cursor: pointer;
+            font-weight: 900;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            padding: 0;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .filter-controls button {
+            padding: 12px 20px;
+            border: 2px solid #000;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.05s ease;
+        }
+        
+        .hide-excluded-btn {
+            background-color: #004E89;
+            color: #fff;
+        }
+        
+        .hide-excluded-btn.active {
+            background-color: #FF6B35;
+            color: #000;
+        }
+        
+        .save-preset-btn {
+            background-color: #F77F00;
+            color: #fff;
+        }
+        
+        .clear-filters-btn {
+            background-color: #E8F4F8;
+            color: #004E89;
+        }
+        
+        tbody tr.excluded {
+            opacity: 0.5;
+            background-color: #f0f0f0 !important;
+            border-left: 3px solid #F77F00 !important;
+        }
+        
+        tbody tr.excluded td:first-child::before {
+            content: '⛔ ';
+            font-weight: 900;
+        }
+        
+        .preset-list {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .preset-btn {
+            padding: 8px 12px;
+            background-color: #E8F4F8;
+            border: 2px solid #004E89;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 12px;
+            transition: all 0.05s ease;
+        }
+        
+        .preset-btn:hover {
+            background-color: #004E89;
+            color: #fff;
+        }
         
         .saved-urls-section {
             margin-top: 30px;
@@ -532,6 +772,142 @@
                 font-size: 14px;
                 box-shadow: 4px 4px 0px 0px #F77F00;
             }
+            
+            .filter-panel {
+                padding: 20px;
+                box-shadow: 6px 6px 0px 0px #F77F00;
+            }
+            
+            .filter-panel h3 {
+                font-size: 1.2em;
+            }
+            
+            .filter-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .filter-tab {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+            
+            .quick-filters {
+                gap: 10px;
+            }
+            
+            .quick-filter-btn {
+                font-size: 13px;
+                padding: 10px 12px;
+            }
+            
+            .custom-rule,
+            .simple-exclude {
+                flex-direction: column;
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            
+            .custom-rule select,
+            .custom-rule input,
+            .simple-exclude select,
+            .simple-exclude input {
+                width: 100%;
+                padding: 10px;
+                font-size: 13px;
+            }
+            
+            .custom-rule button,
+            .simple-exclude button {
+                width: 100%;
+                padding: 12px;
+            }
+            
+            .filter-chips {
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            
+            .filter-chip {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            
+            .filter-controls {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .filter-controls button {
+                padding: 10px 15px;
+                font-size: 13px;
+            }
+            
+            .preset-list {
+                gap: 8px;
+                margin-top: 12px;
+            }
+            
+            .preset-btn {
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .action-toolbar {
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 15px;
+                box-shadow: 5px 5px 0px 0px #F77F00;
+            }
+            
+            .action-toolbar button {
+                padding: 12px 18px;
+                font-size: 13px;
+                margin: 0;
+            }
+            
+            .action-toolbar span {
+                margin-left: auto;
+                font-size: 13px;
+            }
+            
+            .save-btn {
+                padding: 8px 12px;
+                font-size: 15px;
+            }
+            
+            .saved-workers-panel {
+                padding: 20px;
+                box-shadow: 6px 6px 0px 0px #FF6B35;
+            }
+            
+            .saved-workers-list {
+                max-height: 400px;
+                border: 2px solid #004E89;
+            }
+            
+            .saved-worker-item {
+                padding: 12px;
+                font-size: 13px;
+            }
+            
+            .remove-worker-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+            
+            .export-controls {
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 15px;
+            }
+            
+            .export-controls button {
+                padding: 12px 18px;
+                font-size: 13px;
+            }
         }
         
         /* Mobile (480px and below) */
@@ -697,6 +1073,99 @@
             .export-controls button {
                 width: 100%;
             }
+            
+            .filter-panel {
+                padding: 15px;
+                box-shadow: 5px 5px 0px 0px #F77F00;
+            }
+            
+            .filter-tabs {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            .filter-tab {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            
+            .custom-rule,
+            .simple-exclude {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .custom-rule select,
+            .custom-rule input,
+            .simple-exclude select,
+            .simple-exclude input {
+                width: 100%;
+            }
+            
+            .custom-rule button,
+            .simple-exclude button {
+                width: 100%;
+            }
+            
+            .quick-filters {
+                gap: 8px;
+            }
+            
+            .quick-filter-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+            }
+            
+            .filter-controls {
+                flex-direction: column;
+            }
+            
+            .filter-controls button {
+                width: 100%;
+            }
+            
+            .preset-btn {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+            
+            .filter-chips {
+                gap: 6px;
+                flex-wrap: wrap;
+                margin-bottom: 12px;
+            }
+            
+            .filter-chip {
+                padding: 6px 10px;
+                font-size: 11px;
+                flex-wrap: wrap;
+            }
+            
+            .filter-chip-remove {
+                font-size: 14px;
+                padding: 0 4px;
+            }
+            
+            .saved-worker-name {
+                font-size: 12px;
+            }
+            
+            .saved-worker-info {
+                font-size: 11px;
+            }
+            
+            input[type="checkbox"] {
+                width: 16px;
+                height: 16px;
+            }
+            
+            tbody tr.excluded {
+                opacity: 0.4;
+            }
+            
+            tbody tr.saved {
+                background-color: #FFF9E6 !important;
+            }
         }
     </style>
 </head>
@@ -724,6 +1193,88 @@
     </div>
     
     <div id="status"></div>
+    
+    <div id="filterPanel" class="filter-panel" style="display: none;">
+        <h3>🔍 Filter & Exclude Workers</h3>
+        
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <div class="filter-tab active" onclick="switchFilterTab('quick')">⚡ Quick Filters</div>
+            <div class="filter-tab" onclick="switchFilterTab('custom')">⚙️ Custom Rules</div>
+            <div class="filter-tab" onclick="switchFilterTab('simple')">✏️ Simple Exclude</div>
+        </div>
+        
+        <!-- Quick Filters Tab -->
+        <div id="quickFiltersContent" class="filter-content active">
+            <div class="quick-filters">
+                <button class="quick-filter-btn" onclick="toggleQuickFilter('Expired')">❌ Expired</button>
+                <button class="quick-filter-btn" onclick="toggleQuickFilter('Revoked')">⚠️ Revoked</button>
+                <button class="quick-filter-btn" onclick="toggleQuickFilter('Pending')">⏳ Pending</button>
+                <button class="quick-filter-btn" onclick="toggleQuickFilter('Active')">✅ Active</button>
+                <button class="quick-filter-btn" onclick="toggleQuickFilter('Suspended')">🚫 Suspended</button>
+            </div>
+        </div>
+        
+        <!-- Custom Rules Tab -->
+        <div id="customRulesContent" class="filter-content">
+            <div class="custom-rule">
+                <select id="ruleField">
+                    <option value="license_status">License Status</option>
+                    <option value="license_type">License Type</option>
+                    <option value="license_business_city">City</option>
+                    <option value="business_state">State</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                </select>
+                <select id="ruleOperator">
+                    <option value="equals">Equals</option>
+                    <option value="contains">Contains</option>
+                    <option value="not_equals">Not Equals</option>
+                    <option value="not_contains">Not Contains</option>
+                </select>
+                <input type="text" id="ruleValue" placeholder="Enter value...">
+                <button onclick="addCustomRule()">Add Rule</button>
+            </div>
+        </div>
+        
+        <!-- Simple Exclude Tab -->
+        <div id="simpleExcludeContent" class="filter-content">
+            <div class="simple-exclude">
+                <label>Exclude where</label>
+                <select id="simpleField">
+                    <option value="license_status">License Status</option>
+                    <option value="license_type">License Type</option>
+                    <option value="license_business_city">City</option>
+                    <option value="business_state">State</option>
+                    <option value="first_name">First Name</option>
+                    <option value="last_name">Last Name</option>
+                </select>
+                <label>contains</label>
+                <input type="text" id="simpleValue" placeholder="Enter value...">
+                <button onclick="addSimpleExclusion()">Add</button>
+            </div>
+        </div>
+        
+        <!-- Active Filters Display -->
+        <div class="active-filters" id="activeFiltersSection" style="display: none;">
+            <h4>Active Filters:</h4>
+            <div class="filter-chips" id="filterChips"></div>
+        </div>
+        
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <button class="hide-excluded-btn" id="hideExcludedBtn" onclick="toggleHideExcluded()">👁️ Show Excluded</button>
+            <button class="save-preset-btn" onclick="openSavePreset()">💾 Save Preset</button>
+            <button class="clear-filters-btn" onclick="clearAllFilters()">✨ Clear All</button>
+        </div>
+        
+        <!-- Saved Presets -->
+        <div id="presetsSection" style="display: none;">
+            <h4 style="margin-top: 15px; margin-bottom: 10px; font-weight: 900; color: #004E89;">Saved Presets:</h4>
+            <div class="preset-list" id="presetsList"></div>
+        </div>
+    </div>
+    
     <div id="actionToolbar" class="action-toolbar" style="display: none;">
         <button onclick="saveSelectedWorkers()">💾 Save Selected</button>
         <button onclick="clearSelection()">Clear Selection</button>
@@ -764,6 +1315,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadSavedUrls();
     loadSavedWorkers();
     displaySavedWorkers();
+    loadFilterPresets();
 });
 
 // Save current URL to localStorage
@@ -930,6 +1482,12 @@ function renderTable(dataArray) {
     selectedRows.clear();
     document.getElementById('actionToolbar').style.display = 'flex';
     document.getElementById('savedWorkersPanel').style.display = 'block';
+    document.getElementById('filterPanel').style.display = 'block';
+    
+    // Initialize hide excluded button to active state (since hideExcluded = true by default)
+    const hideExcludedBtn = document.getElementById('hideExcludedBtn');
+    hideExcludedBtn.classList.add('active');
+    hideExcludedBtn.textContent = '👁️‍🗨️ Hide Excluded';
     
     // Build table header with checkbox column
     let html = '<table><thead><tr>';
@@ -957,6 +1515,10 @@ function renderTable(dataArray) {
     
     // Display the table
     resultsDiv.innerHTML = html;
+    
+    // Apply filters to show/hide excluded workers
+    applyFilters();
+
 }
 
 function sortByField(field) {
@@ -1074,6 +1636,9 @@ function sortByField(field) {
     
     html += '</tbody></table>';
     resultsDiv.innerHTML = html;
+    
+    // Apply filters to show/hide excluded workers
+    applyFilters();
 }
 
 // Worker saving functions
@@ -1284,6 +1849,287 @@ function downloadFile(content, filename, type) {
     a.click();
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
+}
+
+// Filter System
+let filters = [];
+let hideExcluded = true;
+let filterPresets = [];
+
+// Load filter presets from localStorage
+function loadFilterPresets() {
+    const saved = localStorage.getItem('filterPresets');
+    filterPresets = saved ? JSON.parse(saved) : [];
+    displayPresets();
+}
+
+// Switch between filter tabs
+function switchFilterTab(tab) {
+    document.querySelectorAll('.filter-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.filter-tab').forEach(el => el.classList.remove('active'));
+    
+    document.getElementById(tab === 'quick' ? 'quickFiltersContent' : tab === 'custom' ? 'customRulesContent' : 'simpleExcludeContent').classList.add('active');
+    event.target.classList.add('active');
+}
+
+// Toggle quick filter
+function toggleQuickFilter(value) {
+    const btn = event.target;
+    btn.classList.toggle('active');
+    
+    if (btn.classList.contains('active')) {
+        // Add filter for license_status field
+        filters.push({
+            type: 'quick',
+            field: 'license_status',
+            operator: 'equals',
+            value: value
+        });
+    } else {
+        // Remove this filter
+        filters = filters.filter(f => !(f.type === 'quick' && f.field === 'license_status' && f.value === value));
+    }
+    
+    applyFilters();
+    updateFilterDisplay();
+}
+
+// Add custom rule
+function addCustomRule() {
+    const field = document.getElementById('ruleField').value;
+    const operator = document.getElementById('ruleOperator').value;
+    const value = document.getElementById('ruleValue').value;
+    
+    if (!value.trim()) {
+        alert('Please enter a value');
+        return;
+    }
+    
+    filters.push({
+        type: 'custom',
+        field: field,
+        operator: operator,
+        value: value
+    });
+    
+    document.getElementById('ruleValue').value = '';
+    applyFilters();
+    updateFilterDisplay();
+}
+
+// Add simple exclusion
+function addSimpleExclusion() {
+    const field = document.getElementById('simpleField').value;
+    const value = document.getElementById('simpleValue').value;
+    
+    if (!value.trim()) {
+        alert('Please enter a value');
+        return;
+    }
+    
+    filters.push({
+        type: 'simple',
+        field: field,
+        operator: 'contains',
+        value: value
+    });
+    
+    document.getElementById('simpleValue').value = '';
+    applyFilters();
+    updateFilterDisplay();
+}
+
+// Check if a worker should be excluded
+function shouldExcludeWorker(worker) {
+    // Check all filters
+    for (let filter of filters) {
+        const fieldValue = String(worker[filter.field] || '').toLowerCase();
+        const filterValue = String(filter.value).toLowerCase();
+        
+        let matches = false;
+        
+        switch (filter.operator) {
+            case 'equals':
+                matches = fieldValue === filterValue;
+                break;
+            case 'contains':
+                matches = fieldValue.includes(filterValue);
+                break;
+            case 'not_equals':
+                matches = fieldValue !== filterValue;
+                break;
+            case 'not_contains':
+                matches = !fieldValue.includes(filterValue);
+                break;
+        }
+        
+        // If this is an exclusion filter, exclude if it matches
+        if (matches) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Apply filters to table
+function applyFilters() {
+    if (!currentData || currentData.length === 0) return;
+    
+    const tbody = document.querySelector('table tbody');
+    if (!tbody) return;
+    
+    const rows = tbody.querySelectorAll('tr');
+    rows.forEach((row, index) => {
+        const worker = currentData[index];
+        const shouldExclude = shouldExcludeWorker(worker);
+        
+        if (shouldExclude) {
+            row.classList.add('excluded');
+            if (hideExcluded) {
+                row.style.display = 'none';
+            } else {
+                row.style.display = '';
+            }
+        } else {
+            row.classList.remove('excluded');
+            row.style.display = '';
+        }
+    });
+}
+
+// Toggle hide/show excluded
+function toggleHideExcluded() {
+    hideExcluded = !hideExcluded;
+    const btn = document.getElementById('hideExcludedBtn');
+    btn.classList.toggle('active');
+    btn.textContent = hideExcluded ? '👁️‍🗨️ Hide Excluded' : '👁️ Show Excluded';
+    applyFilters();
+}
+
+// Update filter display
+function updateFilterDisplay() {
+    const section = document.getElementById('activeFiltersSection');
+    const chips = document.getElementById('filterChips');
+    
+    if (filters.length === 0) {
+        section.style.display = 'none';
+        return;
+    }
+    
+    section.style.display = 'block';
+    chips.innerHTML = '';
+    
+    filters.forEach((filter, index) => {
+        let label = '';
+        if (filter.type === 'quick') {
+            label = `${filter.field}: ${filter.value}`;
+        } else if (filter.type === 'custom') {
+            label = `${filter.field} ${filter.operator} "${filter.value}"`;
+        } else if (filter.type === 'simple') {
+            label = `${filter.field} contains "${filter.value}"`;
+        }
+        
+        const chip = document.createElement('div');
+        chip.className = 'filter-chip';
+        chip.innerHTML = `${label} <button class="filter-chip-remove" onclick="removeFilter(${index})">✕</button>`;
+        chips.appendChild(chip);
+    });
+}
+
+// Remove a filter
+function removeFilter(index) {
+    filters.splice(index, 1);
+    applyFilters();
+    updateFilterDisplay();
+    
+    // Update quick filter buttons
+    document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+}
+
+// Clear all filters
+function clearAllFilters() {
+    filters = [];
+    hideExcluded = true;
+    document.getElementById('hideExcludedBtn').classList.add('active');
+    document.getElementById('hideExcludedBtn').textContent = '👁️‍🗨️ Hide Excluded';
+    document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+    applyFilters();
+    updateFilterDisplay();
+}
+
+// Save filter preset
+function openSavePreset() {
+    const name = prompt('Save this filter preset as:');
+    if (!name) return;
+    
+    const preset = {
+        name: name,
+        filters: JSON.parse(JSON.stringify(filters)),
+        hideExcluded: hideExcluded
+    };
+    
+    filterPresets.push(preset);
+    localStorage.setItem('filterPresets', JSON.stringify(filterPresets));
+    displayPresets();
+    alert('Preset saved!');
+}
+
+// Display saved presets
+function displayPresets() {
+    if (filterPresets.length === 0) {
+        document.getElementById('presetsSection').style.display = 'none';
+        return;
+    }
+    
+    document.getElementById('presetsSection').style.display = 'block';
+    const list = document.getElementById('presetsList');
+    list.innerHTML = '';
+    
+    filterPresets.forEach((preset, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'preset-btn';
+        btn.textContent = `📌 ${preset.name}`;
+        btn.onclick = () => loadPreset(index);
+        list.appendChild(btn);
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'preset-btn';
+        deleteBtn.textContent = '🗑️';
+        deleteBtn.style.marginLeft = '-8px';
+        deleteBtn.style.paddingLeft = '8px';
+        deleteBtn.style.paddingRight = '8px';
+        deleteBtn.onclick = () => deletePreset(index);
+        list.appendChild(deleteBtn);
+    });
+}
+
+// Load a preset
+function loadPreset(index) {
+    const preset = filterPresets[index];
+    filters = JSON.parse(JSON.stringify(preset.filters));
+    hideExcluded = preset.hideExcluded;
+    
+    const btn = document.getElementById('hideExcludedBtn');
+    if (hideExcluded) {
+        btn.classList.add('active');
+        btn.textContent = '👁️‍🗨️ Hide Excluded';
+    } else {
+        btn.classList.remove('active');
+        btn.textContent = '👁️ Show Excluded';
+    }
+    
+    applyFilters();
+    updateFilterDisplay();
+}
+
+// Delete a preset
+function deletePreset(index) {
+    if (confirm('Delete this preset?')) {
+        filterPresets.splice(index, 1);
+        localStorage.setItem('filterPresets', JSON.stringify(filterPresets));
+        displayPresets();
+    }
 }
 
     </script>
